@@ -15,37 +15,40 @@
     
 
         <title>GifTastic</title>
+
     </head>
     <body>
-        <div class="containe">
+        <h1 class="banner display-4 text-center text-info"> INFO-APP</h1>
+        <div class="containe pl-2">
             <div class="row">
                     <br>
                     <!-- Adding buttons for the celebrities -->
-                    <div class="buttons bg-primary p-3 col-9 mb-4"></div>
-                    <div class="weather"></div>
+                    <div class="buttons p-3 col-sm-9 col-md-9 mb-4"></div>
+                    <div class="weather bg-light">WEATHER</div>
                 </div>
-                    <br><br>
+                    
                     <div class="row">
                             <form action="submit" class="col-6">
-                                    <label for="name">Who's your favorite celeb? </label>
+                                    <label class=' text-uppercase text-info'for="query">
+                                        <ul>
+                                            <li>Enter your query in the box - Click on query button for GIFs</li>
+                                            <li>Enter your city name to get Weather Report and MAP</li>
+                                        </ul>                                    
+                                    </label>
                                     <!-- Input celeb name here -->
                                     <input class='celeb-name' type="text">
                                     <button class="submit">SUBMIT</button>        
                                     <!-- Empty div for adding gifs -->
                                     <div class="images"></div>
-                                </form>
-                                <div class='col-6' id="map"></div>
-            
+                            </form>
+                            <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
+                            <div class='col-6' id="map"></div>
                     </div>
-
-                    
-                    <!-- Empty div for adding gifs -->
-                    <!-- <div class="images"></div> -->
-        
-            
-
         </div>
     </body>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxkJaU8O1vHZwmWL4t8W0AJUPJWW2-aI&callback=initMap"
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxkJaU8O1vHZwmWL4t8W0AJUPJWW2-aI&libraries=places&callback=initAutocomplete"
+    async defer></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxkJaU8O1vHZwmWL4t8W0AJUPJWW2-aI"
     async defer></script>
-</html>
+    
+    </html>
