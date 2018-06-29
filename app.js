@@ -1,5 +1,5 @@
 $(function() {
-    var options = ['Steve Jobs', 'Bruce Lee', 'Leonardo DiCaprio', 'Roger Federer'];
+    var options = ['Toronto', 'Bruce Lee', 'Leonardo DiCaprio', 'Roger Federer'];
     
 // display buttons with celeb names on the screen      
 function displayButtons() {
@@ -14,7 +14,8 @@ function displayButtons() {
 
 // get data about the query 
 function getInfo() {
-    var query = $(this).attr('data-name');
+    var query = $(".celeb-name").val().trim();
+    // var query = $(this).attr('data-name');
     var url = 'https://api.giphy.com/v1/gifs/search'
     url += '?' + $.param({
         'q'       : query,
@@ -72,6 +73,7 @@ $('.submit').on("click", function(event) {
     getInfo();
     getLocation();
     getWeather();
+    getNews();
 });
 displayButtons();
     
@@ -103,147 +105,9 @@ function getLocation() {
             center: {lat: location.results[0].geometry.location.lat , lng: location.results[0].geometry.location.lng },
             zoom: 8
             });
-   
     })
-
     return location;
-
 }
-// function initAutocomplete() {
-//         var map = new google.maps.Map(document.getElementById('map'), {
-//           center: {lat: -33.8688, lng: 151.2195},
-//           zoom: 13,
-//           mapTypeId: 'roadmap'
-//         });
-
-//         // Create the search box and link it to the UI element.
-//         var input = document.getElementById('pac-input');
-//         var searchBox = new google.maps.places.SearchBox(input);
-//         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
-//         // Bias the SearchBox results towards current map's viewport.
-//         map.addListener('bounds_changed', function() {
-//           searchBox.setBounds(map.getBounds());
-//         });
-
-//         var markers = [];
-//         // Listen for the event fired when the user selects a prediction and retrieve
-//         // more details for that place.
-//         searchBox.addListener('places_changed', function() {
-//           var places = searchBox.getPlaces();
-
-//           if (places.length == 0) {
-//             return;
-//           }
-
-//           // Clear out the old markers.
-//           markers.forEach(function(marker) {
-//             marker.setMap(null);
-//           });
-//           markers = [];
-
-//           // For each place, get the icon, name and location.
-//           var bounds = new google.maps.LatLngBounds();
-//           places.forEach(function(place) {
-//             if (!place.geometry) {
-//               console.log("Returned place contains no geometry");
-//               return;
-//             }
-//             var icon = {
-//               url: place.icon,
-//               size: new google.maps.Size(71, 71),
-//               origin: new google.maps.Point(0, 0),
-//               anchor: new google.maps.Point(17, 34),
-//               scaledSize: new google.maps.Size(25, 25)
-//             };
-
-//             // Create a marker for each place.
-//             markers.push(new google.maps.Marker({
-//               map: map,
-//               icon: icon,
-//               title: place.name,
-//               position: place.geometry.location
-//             }));
-
-//             if (place.geometry.viewport) {
-//               // Only geocodes have viewport.
-//               bounds.union(place.geometry.viewport);
-//             } else {
-//               bounds.extend(place.geometry.location);
-//             }
-//           });
-//           map.fitBounds(bounds);
-//         });
-//       }
-
-
-// // getting location from geocoding data
-// function getLocation() {
-
-//     var address = $(".celeb-name").val().trim();
-//     var url = 'https://maps.googleapis.com/maps/api/geocode/json';
-
-//     url += '?' + $.param({
-//         'address' : address,
-//         'key' : 'AIzaSyD0g1E3rBCb46ewHYGCVRvcIkKxY-TbAL0'
-//     })
-//     console.log(url)
-//     $.ajax({
-//         url: url,
-//         method: 'GET'
-//     }).then(function(location) {
-//         lat = location.results[0].geometry.location.lat;
-//         lng = location.results[0].geometry.location.lng;
-//         console.log(lat);
-//         console.log(lng);
-
-//         console.log(location)
-//         // return location;
-
-   
-//     })
-
-//     return location;
-//     return lat;
-//     return lng;
-
-// }
-// // getLocation();
-// console.log(lat);
-// console.log(lng);
-// console.log(location)
-
-
-
-
-// var lat;
-// var lng;
-
-// var map;
-// var url = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxkJaU8O1vHZwmWL4t8W0AJUPJWW2-aI&callback=initMap'
-// url += '?' + $.param({
-//     'key' : 'AIzaSyBjxkJaU8O1vHZwmWL4t8W0AJUPJWW2-aI',
-//     'callback' : 'initmap',
-//     'q' : 'loc:' + lat + '+' + lng,
-//     'mode' : 'html'
-// })
-// console.log(url);
-// var latlng = { lat: parseInt(lat), lng: parseInt(lng)};
-// // $.ajax({
-// //     url: url,
-// //     method: 'GET'
-// // }).done(function(map) {
-// //     console.log(map);
-// // })
-// function initMap() {
-// map = new google.maps.Map(document.getElementById('map'), {
-// center: latlng,
-// zoom: 8
-// });
-// }
-
-
-
 // getting weaher data on screen
 function getWeather() {
     var q = $(".celeb-name").val().trim();
@@ -255,15 +119,59 @@ function getWeather() {
         'mode' : 'html',
         'units'  : 'metric'
     })
+    console.log(url);
     $.ajax({
         url: url,
         method: 'GET'
     }).then(function(data) {
+
         $(".weather").html(data);
+
+        // var coordinates = $("<p class='coord'>").text('LAT: ' + data.coord.lat + ' LON: ' + data.coord.lon);
+        // var temperature = $("<p class='temp'>").text('TEMPERATURE: ' + data.main.temp);
+        // var pressure = $("<p class='pressure'>").text('PRESSURE: ' + data.main.pressure);
+        // var windSpeed = $("<p class='wind'>").text('WIND SPEED: ' + data.wind.speed);
+
+        // $(".weather").append(coordinates, temperature, pressure, windSpeed);
+
         // console.log(data);
     })
 }
 
+//get news data
+function getNews() {
+    var query = $(".celeb-name").val().trim();
+    var url = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
+    url += '?' + $.param({
+      'q' : query,
+      'api-key': "4aff0dd88c3d462287ad3a77ad96c599",
+      'begin_date': "20180627",
+      'end_date': "20180628",
+      'sort': "newest",
+      'page': 0
+    });
+    $.ajax({
+        url: url,
+        method: 'GET'
+    }).done(function(response) {
+        console.log(response);
+
+        var info = response.response.docs;
+        console.log(info.length);
+
+        for (var i = 0; i < info.length; i++) {
+            
+            var headline =  $("<h2 class='newsItems'>").text(info[i].headline.main); 
+            var snippet = $("<p>").text(info[i].snippet);
+            var link = $("<a>").attr('href', info[i].web_url);
+            link.text("CLICK HERE TO READ MORE");
+            
+            $(".news").append(headline, snippet, link);  
+        }
+    }).fail(function(err) {
+        throw err;
+    });
+}
 
 
 

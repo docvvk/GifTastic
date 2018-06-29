@@ -1,9 +1,9 @@
 #map {
     border: 1px solid black;
-    height: 40vw;
-    width: 40vw;
-    position: relative;
-    right: 4vw;
+    height: 500vh;
+    /* width: 40vw; */
+    /* position: relative; */
+    /* right: 4vw; */
 }
   /* Optional: Makes the sample page fill the window. */
 html, body {
@@ -21,9 +21,20 @@ html, body {
 .link {
   text-decoration: none;
 }
+.images {
+  max-width: 33vw;;
+}
 .weather {
+  background-color: #ffffffb6;
+  /* background-image: url('https://media.giphy.com/media/X5IuCdGZOflHW/giphy.gif'); */
+  /* width: 30vw;
+  height: 30vw; */
   position: relative;
   bottom: 4vw;
   padding: 5px;
   left: 8vw;
+}
+.news {
+  background-color: #ffffffb6;
+  /* color: antiquewhite; */
 }

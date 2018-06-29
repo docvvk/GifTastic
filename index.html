@@ -3,47 +3,53 @@
     
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script
-        src="https://code.jquery.com/jquery-3.3.1.min.js"
-        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-        crossorigin="anonymous"></script>
-    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">    
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css" type="text/css">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
         <script src="app.js"></script>
     
-
         <title>GifTastic</title>
-
     </head>
     <body>
-        <h1 class="banner display-4 text-center text-info"> INFO-APP</h1>
+        <h1 class="banner display-4 text-center text-light"> INFO-APP</h1>
         <div class="contain pl-2">
-            <div class="row">
+            <div class="row infoButtons">
                     <br>
                     <!-- Adding buttons for the celebrities -->
                     <div class="buttons p-3 col-sm-9 col-md-9 mb-4"></div>
-                    <div class="weather bg-light">WEATHER</div>
                 </div>
                     
                     <div class="row">
                             <form action="submit" class="col-6">
-                                    <label class=' text-uppercase text-info'for="query">
+                                    <label class='text-uppercase text-light' for="query">
                                         <ul>
-                                            <li>Enter your query in the box - Click on query button for GIFs</li>
-                                            <li>Enter your city name to get Weather Report and MAP</li>
+                                            <li>Enter your query in the box</li>
+                                            <li>Submit to get Latest News, GIFs, Weather Report and MAP</li>
                                         </ul>                                    
                                     </label>
                                     <!-- Input celeb name here -->
-                                    <input class='celeb-name' type="text">
+                                    <input class='celeb-name' type="text" placeholder="search box">
                                     <button class="submit">SUBMIT</button>        
+                                    
                                     <!-- Empty div for adding gifs -->
-                                    <div class="images"></div>
                             </form>
+                            <div class="col-2"></div>
+                            <div class="col-md-4 col-4 weather">WEATHER</div>
+
                             <!-- <input id="pac-input" class="controls" type="text" placeholder="Search Box"> -->
-                            <div class='col-6' id="map"></div>
                     </div>
+                                        <br><br>
+
+                    <div class="row gifs">
+                        <div class="images col-md-4 col-sm-4"></div>
+                        <div class="news col-md-4 col-sm-4"></div>
+                        <div class='col-md-4 col-sm-4' id="map"></div>
+                    </div>
+                    <!-- <div class="row">
+                        <div class='col-12' id="map"></div>
+
+                    </div> -->
         </div>
     </body>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjxkJaU8O1vHZwmWL4t8W0AJUPJWW2-aI"
