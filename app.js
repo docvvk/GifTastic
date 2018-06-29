@@ -11,6 +11,10 @@ function displayButtons() {
     $(".buttons").prepend(btn);
     } 
 }
+// Click celeb buttons for their giphys and info
+$(document).on("click", '.celeb', function() {
+    $(this).attr('data-name', ($(".celeb-name").val().trim()));
+});
 
 // get data about the query 
 function getInfo() {
@@ -29,7 +33,7 @@ function getInfo() {
         method: 'GET',
     }).done(function(response) {
         var info = response.data;
-        for (var i = 0; i < info.length; i ++) {
+        for (var i = 0; i < info.length; i++) {
             
             var img = $("<img class='gif'>").attr('src',info[i].images.fixed_height_still.url);
             img.attr('data-state', 'still');
@@ -39,9 +43,6 @@ function getInfo() {
             var rating = $("<p class='r text-info'>").html('<a class="link" target="_blank" href=' + info[i].images.original.url + '>' + info[i].title + '</a><br> Rating: ' + info[i].rating);
 
             $(".images").prepend(img,  rating);
-            // $(".images").slideDown(3000);
-
-
 
             // function to animate gif
             $(".gif").on('click', function () { 
@@ -60,9 +61,6 @@ function getInfo() {
         throw err;        
     })
 }
-
-// Click celeb buttons for their giphys and info
-$(document).on("click", '.celeb', getInfo);
 
 // Click submit button for adding your celeb
 $('.submit').on("click", function(event) {
@@ -124,17 +122,7 @@ function getWeather() {
         url: url,
         method: 'GET'
     }).then(function(data) {
-
         $(".weather").html(data);
-
-        // var coordinates = $("<p class='coord'>").text('LAT: ' + data.coord.lat + ' LON: ' + data.coord.lon);
-        // var temperature = $("<p class='temp'>").text('TEMPERATURE: ' + data.main.temp);
-        // var pressure = $("<p class='pressure'>").text('PRESSURE: ' + data.main.pressure);
-        // var windSpeed = $("<p class='wind'>").text('WIND SPEED: ' + data.wind.speed);
-
-        // $(".weather").append(coordinates, temperature, pressure, windSpeed);
-
-        // console.log(data);
     })
 }
 
@@ -161,7 +149,7 @@ function getNews() {
 
         for (var i = 0; i < info.length; i++) {
             
-            var headline =  $("<h2 class='newsItems'>").text(info[i].headline.main); 
+            var headline =  $("<h3 class='newsItems'>").text(info[i].headline.main); 
             var snippet = $("<p>").text(info[i].snippet);
             var link = $("<a>").attr('href', info[i].web_url);
             link.text("CLICK HERE TO READ MORE");

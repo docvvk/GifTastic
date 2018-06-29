@@ -16,6 +16,8 @@ html, body {
 .banner {
   font-weight: 600;
   margin-top: 10px;
+  background-color: #0b152591;
+
 }
   
 .link {
@@ -36,5 +38,13 @@ html, body {
 }
 .news {
   background-color: #ffffffb6;
+  height: 500vh;
+  overflow: scroll;
   /* color: antiquewhite; */
+}
+.gif {
+  max-width: 30.5vw;
+}
+.strip {
+  background-color: #0b152591;
 }
