@@ -16,12 +16,12 @@ function displayButtons() {
 //     $(this).attr('data-name', ($(".celeb-name").val().trim()));
 // });
 
-$(document).on("click", '.celeb', getInfo);
+// $(document).on("click", '.celeb', getInfo);
 
 // get data about the query 
 function getInfo() {
     var query = $(".celeb-name").val().trim();
-    var query = $(this).attr('data-name');
+    // var query = $(this).attr('data-name');
     var url = 'https://api.giphy.com/v1/gifs/search'
     url += '?' + $.param({
         'q'       : query,
@@ -74,7 +74,7 @@ $('.submit').on("click", function(event) {
     getLocation();
     getWeather();
     getNews();
-    $(".celeb-name").val('');
+    // $(".celeb-name").val('');
 });
 displayButtons();
     
