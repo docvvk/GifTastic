@@ -34,7 +34,8 @@ html, body {
   position: relative;
   bottom: 4vw;
   padding: 5px;
-  left: 8vw;
+  border-radius: 20%;
+  /* left: 8vw; */
 }
 .news {
   background-color: #ffffffb6;
@@ -47,4 +48,23 @@ html, body {
 }
 .strip {
   background-color: #0b152591;
+}
+@media only screen and (max-width: 576px) {
+  .weather {
+      position: relative;
+
+  }
+}
+.gif {
+  max-width: 30.5vw;
+}
+.news {
+  width: 34vw;
+  position: relative;
+}
+#map {
+  width: 35vw;
+}
+.newsItems {
+  font-size: 2vw;
 }

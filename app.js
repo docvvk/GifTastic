@@ -12,14 +12,16 @@ function displayButtons() {
     } 
 }
 // Click celeb buttons for their giphys and info
-$(document).on("click", '.celeb', function() {
-    $(this).attr('data-name', ($(".celeb-name").val().trim()));
-});
+// $(document).on("click", '.celeb', function() {
+//     $(this).attr('data-name', ($(".celeb-name").val().trim()));
+// });
+
+$(document).on("click", '.celeb', getInfo);
 
 // get data about the query 
 function getInfo() {
     var query = $(".celeb-name").val().trim();
-    // var query = $(this).attr('data-name');
+    var query = $(this).attr('data-name');
     var url = 'https://api.giphy.com/v1/gifs/search'
     url += '?' + $.param({
         'q'       : query,
@@ -40,7 +42,7 @@ function getInfo() {
             img.attr('data-still', info[i].images.fixed_height_still.url);
             img.attr('data-animate', info[i].images.fixed_height.url);
            
-            var rating = $("<p class='r text-info'>").html('<a class="link" target="_blank" href=' + info[i].images.original.url + '>' + info[i].title + '</a><br> Rating: ' + info[i].rating);
+            var rating = $("<p class='newsItems text-secondary'>").html('<a class="newsItems text-info" target="_blank" href=' + info[i].images.original.url + '>' + info[i].title + '</a><br> Rating: ' + info[i].rating);
 
             $(".images").prepend(img,  rating);
 
@@ -72,6 +74,7 @@ $('.submit').on("click", function(event) {
     getLocation();
     getWeather();
     getNews();
+    $(".celeb-name").val('');
 });
 displayButtons();
     
@@ -106,7 +109,7 @@ function getLocation() {
     })
     return location;
 }
-// getting weaher data on screen
+// getting weather data on screen
 function getWeather() {
     var q = $(".celeb-name").val().trim();
     var url = "https://api.openweathermap.org/data/2.5/weather"
@@ -149,9 +152,9 @@ function getNews() {
 
         for (var i = 0; i < info.length; i++) {
             
-            var headline =  $("<h3 class='newsItems'>").text(info[i].headline.main); 
-            var snippet = $("<p>").text(info[i].snippet);
-            var link = $("<a>").attr('href', info[i].web_url);
+            var headline =  $("<h5 class='newsItems'>").text(info[i].headline.main); 
+            var snippet = $("<p class='newsItems'>").text(info[i].snippet);
+            var link = $("<a class='newsItems'>").attr('href', info[i].web_url);
             link.text("CLICK HERE TO READ MORE");
             
             $(".news").append(headline, snippet, link);  
