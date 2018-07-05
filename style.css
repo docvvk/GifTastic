@@ -1,11 +1,7 @@
 #map {
     border: 1px solid black;
-    height: 500vh;
-    /* width: 40vw; */
-    /* position: relative; */
-    /* right: 4vw; */
+    height: 400vh;
 }
-  /* Optional: Makes the sample page fill the window. */
 html, body {
     background-image: url('bgtech2.jpg');
     height: 100%;
@@ -16,10 +12,8 @@ html, body {
 .banner {
   font-weight: 600;
   margin-top: 10px;
-  background-color: #0b152591;
-
+  background-color: #0cf3f791;
 }
-  
 .link {
   text-decoration: none;
 }
@@ -28,20 +22,18 @@ html, body {
 }
 .weather {
   background-color: #ffffffb6;
-  /* background-image: url('https://media.giphy.com/media/X5IuCdGZOflHW/giphy.gif'); */
-  /* width: 30vw;
-  height: 30vw; */
   position: relative;
   bottom: 4vw;
   padding: 5px;
   border-radius: 20%;
-  /* left: 8vw; */
 }
 .news {
   background-color: #ffffffb6;
-  height: 500vh;
+  height: 400vh;
   overflow: scroll;
-  /* color: antiquewhite; */
+}
+.newsItems {
+  font-size: 10px;
 }
 .gif {
   max-width: 30.5vw;
@@ -51,20 +43,33 @@ html, body {
 }
 @media only screen and (max-width: 576px) {
   .weather {
-      position: relative;
-
+    width: 40vw;
+    height: 40vw;
+    position: relative;
+    top: 2vw;
+    padding-left: 5px;
   }
-}
-.gif {
-  max-width: 30.5vw;
-}
-.news {
-  width: 34vw;
-  position: relative;
-}
-#map {
-  width: 35vw;
-}
-.newsItems {
-  font-size: 2vw;
+  .buttons {
+    font-size: 3vw;
+  }
+  .text-info, .celeb-name, .submit {
+    font-size: 3vw;
+  }
+
+  .banner {
+    font-size: 7vw;
+  }
+  .gif {
+    max-width: 30.5vw;
+  }
+  .news {
+    width: 35vw;
+    position: relative;
+  }
+  #map {
+    width: 35vw;
+  }
+  .newsItems {
+    font-size: 2vw;
+  }
 }

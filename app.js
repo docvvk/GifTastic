@@ -74,7 +74,7 @@ $('.submit').on("click", function(event) {
     getLocation();
     getWeather();
     getNews();
-    // $(".celeb-name").val('');
+    $(".celeb-name").val('');
 });
 displayButtons();
     
