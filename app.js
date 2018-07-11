@@ -45,10 +45,11 @@ function getInfo() {
             var rating = $("<p class='newsItems text-secondary'>").html('<a class="newsItems text-info" target="_blank" href=' + info[i].images.original.url + '>' + info[i].title + '</a><br> Rating: ' + info[i].rating);
 
             $(".images").prepend(img,  rating);
-
+        }
             // function to animate gif
             $(".gif").on('click', function () { 
                 var state = $(this).attr('data-state');
+                console.log(state);
                 if (state == 'still') {
                     $(this).attr('src', $(this).attr('data-animate'));
                     $(this).attr('data-state', 'animate');
@@ -58,7 +59,6 @@ function getInfo() {
                 }
              })
             console.log(response);
-        }
     }).fail(function(err) {
         throw err;        
     })
