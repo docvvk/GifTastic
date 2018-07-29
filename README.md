@@ -1,4 +1,4 @@
-[https://docvvk.github.io/GifTastic/](# GifTastic)
+[# GifTastic](https://docvvk.github.io/GifTastic/)
 
 ### Overview
 
